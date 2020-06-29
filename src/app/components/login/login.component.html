@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="box">
+        <div class="spacer"></div>
+        <div class="login-box">
+            <div class="spacer"></div>
+            <div class="login-page">
+
+                <h3 class="heading">Login</h3>
+
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <mat-form-field class="full-width">
+                        <span matPrefix><i class="fa fa-user"></i>&nbsp;</span>
+                        <input formControlName="username" placeholder="Username: " autocomplete="off" matInput
+                            type="text">
+                        <mat-error *ngIf="loginForm.invalid">Please enter a valid email.</mat-error>
+                    </mat-form-field>
+                    <div style="height: 50px;">
+                        <div *ngIf="error$ | async" class="error">
+                            User not found! Please try again.
+                        </div>
+                    </div>
+                    <div [align]="'end'" style="height: 50px;">
+                        <mat-progress-bar *ngIf="loading$ | async" mode="indeterminate"></mat-progress-bar>
+                        <button *ngIf="!(loading$ | async)" mat-raised-button [color]="'primary'">
+                            Login
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="spacer"></div>
+        </div>
+        <div class="spacer"></div>
+    </div>
+</div>

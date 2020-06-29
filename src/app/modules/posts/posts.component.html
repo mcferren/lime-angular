@@ -1,0 +1,36 @@
+<div class="container bg-white">
+
+    <div class="row">
+        <div class="col-8"></div>
+        <div class="col-4">
+            <mat-form-field style="width: 100%;">
+                <span matPrefix>
+                    <i class="fa fa-search"></i>
+                    &nbsp;
+                </span>
+                <input autocomplete="off" [(ngModel)]="keyword" matInput placeholder="Search" type="text">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <mat-progress-bar mode="indeterminate" *ngIf="(loading$ | async)"></mat-progress-bar>
+
+    <div *ngIf="posts$ | async as posts;">
+        <mat-accordion>
+            <mat-expansion-panel *ngFor="let post of getFilteredPosts(posts.list)">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <strong>{{ post.title }} ({{ post.comments.length }} Comments)</strong>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <p>{{ post.body }}</p>
+            </mat-expansion-panel>
+        </mat-accordion>
+
+        <div *ngIf="posts.error" class="error">
+            Error Loading Data
+        </div>
+    </div>
+
+
+</div>

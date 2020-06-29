@@ -1,0 +1,32 @@
+.mat-column-id {
+    flex : 0 0 10% !important;
+    width: 10% !important;
+}
+
+.mat-column-photos {
+    flex : 0 0 20% !important;
+    width: 20% !important;
+}
+
+
+.mat-column-view {
+    flex : 0 0 10% !important;
+    width: 10% !important;
+}
+
+.link {
+    display: block;
+    color  : #369;
+}
+
+.link:hover {
+    text-decoration: underline;
+    cursor         : pointer;
+}
+
+.error {
+    display         : block;
+    padding         : 10px;
+    color           : white;
+    background-color: red;
+}

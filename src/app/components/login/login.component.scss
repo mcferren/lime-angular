@@ -1,0 +1,38 @@
+.box {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.spacer {
+    flex: 1;
+}
+
+.login-box {
+    display: flex;
+}
+
+.login-page {
+    padding: 10px;
+    background-color: white;
+    width: 400px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.heading {
+    padding: 10px 5px;
+    background-color: #339;
+    font-weight: bold;
+    color: white;
+    font-size: large;
+}
+
+.error {
+    display: block;
+    background-color: red;
+    color: white;
+    padding: 10px;
+}

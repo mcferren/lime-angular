@@ -1,0 +1,19 @@
+.spacer {
+    flex: 1;
+}
+
+.active {
+    background-color: #66f;
+    border-bottom: 3px solid white;
+    border-radius: 0;
+}
+
+.web-link {
+    display: block;
+    color: white; 
+    text-decoration: none;
+}
+
+.web-link:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,54 @@
+<div class="container bg-white">
+
+    <div [align]="'end'">
+        Sort Alphabetically:
+        <button (click)="onSortAsc()" mat-icon-button>
+            <mat-icon>arrow_downward</mat-icon>
+        </button>
+        <button (click)="onSortDesc()" mat-icon-button>
+            <mat-icon>arrow_upward</mat-icon>
+        </button>
+    </div>
+
+    <mat-progress-bar mode="indeterminate" *ngIf="(loading$ | async)"></mat-progress-bar>
+
+    <div *ngIf="albums$ | async as albums">
+        <mat-table [dataSource]="getAlbums(albums.list)" class="mat-elevation-z8">
+            <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+                <mat-cell *matCellDef="let album;">
+                    {{ album.id }}
+                </mat-cell>
+            </ng-container> 
+
+            <ng-container matColumnDef="title">
+                <mat-header-cell *matHeaderCellDef>Title</mat-header-cell>
+                <mat-cell *matCellDef="let album;">
+                    {{ album.title }}
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="photos">
+                <mat-header-cell *matHeaderCellDef>Photos</mat-header-cell>
+                <mat-cell *matCellDef="let album;">
+                    {{ album.photos.length }} Photos
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="view">
+                <mat-header-cell *matHeaderCellDef>View</mat-header-cell>
+                <mat-cell *matCellDef="let album;">
+                    <span (click)="onViewPhotos(album)" class="link">View Photos</span>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="columnsList"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: columnsList;"></mat-row>
+        </mat-table>
+
+        <div *ngIf="albums.error" class="error">
+            Error Loading Data
+        </div>
+    </div>
+
+</div>

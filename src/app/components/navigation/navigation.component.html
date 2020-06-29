@@ -1,0 +1,11 @@
+<mat-toolbar [color]="'primary'" *ngIf="user$ | async as user">
+    <button mat-button routerLinkActive="active" [routerLink]="['posts/' + user.id]">Posts</button>
+    <button mat-button routerLinkActive="active" [routerLink]="['albums/' + user.id]">Albums</button>
+    <button mat-button routerLinkActive="active" [routerLink]="['todos/' + user.id]">Todos</button>
+    <span class="spacer"></span>
+    <a class="web-link" [href]="'http://'+user?.website">{{ user?.name }}</a>
+    &nbsp;
+    <span>({{user?.company?.name}})</span>
+    &nbsp;|&nbsp;
+    <button [color]="'warn'" (click)="onLogout()" mat-raised-button>Logout</button>
+</mat-toolbar>

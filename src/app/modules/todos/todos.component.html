@@ -1,0 +1,21 @@
+<div class="container bg-white">
+
+    <div class="row">
+        <div class="col-6">
+            <h3>Todo List</h3>
+        </div>
+        <div class="col-6" [align]="'end'">
+            <mat-slide-toggle [color]="'primary'" [(ngModel)]="displayCompleted">Display completed</mat-slide-toggle>
+        </div>
+    </div>
+
+    <mat-progress-bar mode="indeterminate" *ngIf="loading$ | async"></mat-progress-bar>
+    <mat-divider></mat-divider>
+
+    <div class="todo" *ngFor="let todo of getTodos()">
+        <mat-checkbox [(ngModel)]="todo.completed" [color]="'primary'">
+            {{ todo.title }}
+        </mat-checkbox>
+    </div>
+
+</div>
